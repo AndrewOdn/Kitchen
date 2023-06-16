@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Умный дом</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <h1>Умный дом</h1>
+    <form action="/process" method="post" id="data-form">
+        <label for="temperature">Температура:</label>
+        <input type="number" id="temperature" name="temperature" required><br><br>
+        <label for="humidity">Влажность:</label>
+        <input type="number" id="humidity" name="humidity" required><br><br>
+        <input type="submit" value="Отправить">
+    </form>
+    <div id="result"></div>
+</body>
+</html>
