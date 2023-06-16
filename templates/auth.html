@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="static/free-icon-avatar-2633315.png" type="image/png">
+    <meta charset="utf-8"/>
+    <title>формы регистрации с авторизацией</title>
+
+    <!-- Our CSS stylesheet file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}"/>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body translate="no">
+<div class="container log-in">
+    <div class="box"></div>
+    <div class="container-forms">
+        <div class="container-info">
+            <div class="info-item">
+                <div class="table">
+                    <div class="table-cell">
+                        <p>
+                            Have an account?
+                        </p>
+                        <div class="btn">
+                            Log in
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="table">
+                    <div class="table-cell">
+                        <p>
+                            Don't have an account?
+                        </p>
+                        <div class="btn">
+                            Sign up
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-form">
+            <div class="form-item log-in">
+                <div class="table">
+                    <div class="table-cell">
+                        <input name="Username" placeholder="Username" type="text" oninput="myFunction()"><input
+                            name="Password"
+                            placeholder="Password"
+                            type="Password" oninput="myFunction()">
+                        <div class="btn" onclick="GoToHomePage()">
+                            Log in
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item sign-up">
+                <div class="table">
+                    <div class="table-cell">
+                        <input name="email" placeholder="Email" type="text"><input name="fullName"
+                                                                                   placeholder="Full Name"
+                                                                                   type="text"><input name="Username"
+                                                                                                      placeholder="Username"
+                                                                                                      type="text"
+                                                                                                      oninput="myFunction()">
+                        <input
+                                name="Password" placeholder="Password" type="Password" oninput="myFunction()">
+                        <div class="btn" onclick="GoToHomePage()">
+                            Sign up
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- JavaScript includes -->
+<script src="//code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="{{ url_for('static', filename='auth.js') }}"></script>
+
+</body>
+</html>
+

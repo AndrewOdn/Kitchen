@@ -1,30 +1,60 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
+import sqlite3 as sql
+from sql import create_tables
 
 app = Flask(__name__)
+create_tables()
 
 
-# Главная страница
 @app.route('/')
-def index():
+def main():
     return render_template('main.html')
 
 
-# Регистрационная страница
 @app.route('/register')
 def register():
-    return render_template('register.html')
+    return redirect('/auth')
 
 
-# Обработка регистрации
+@app.route('/auth')
+def auth():
+    return render_template('auth.html')
+
+
+@app.route('/panel')
+def panel():
+    return redirect('/')
+    # return render_template('panel.html')
+
+
+@app.route('/state')
+def state():
+    return redirect('/')
+    # return render_template('panel.html')
+
+
+@app.route('/policy')
+def policy():
+    return redirect('/')
+    # return render_template('policy.html')
+
+
+@app.route('/help')
+def help():
+    return render_template('help.html')
+
+
 @app.route('/process_register', methods=['POST'])
 def process_register():
-    # Получаем данные из формы
     username = request.form['username']
     password = request.form['password']
 
-    # Здесь можно выполнить проверку и сохранение данных в базу данных
+    with sql.connect("database.db") as con:
+        cur = con.cursor()
+        cur.execute("INSERT INTO users (username,password) VALUES(?, ?)", (username, password))
 
-    # Возвращаем страницу с результатами
+        con.commit()
+
     return render_template('result.html', message='Регистрация успешно завершена')
 
 
