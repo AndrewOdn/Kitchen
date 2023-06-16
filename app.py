@@ -39,7 +39,3 @@ def process():
 
     # Возвращаем страницу с результатами
     return render_template('result.html', temperature=temperature, humidity=humidity)
-
-
-if __name__ == '__main__':
-    app.run()
